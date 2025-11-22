@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BalanZen | Clínica Especializada en Trastornos del Equilibrio</title>
+    <meta name="description"
+        content="Recupera tu estabilidad. Clínica especializada en diagnóstico y tratamiento de vértigo, mareos y trastornos del equilibrio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="parallax-bg" id="parallax-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="BalanZen Logo" class="logo-img">
+                BalanZen
+            </a>
+            <ul class="nav-links">
+                <li><a href="#sintomas">Síntomas</a></li>
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#contacto" class="btn-nav">Pedir Cita</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content fade-in-up">
+            <h1>Recupera tu centro,<br>recupera tu vida.</h1>
+            <p>Especialistas líderes en el diagnóstico y rehabilitación de trastornos vestibulares y del equilibrio.</p>
+            <a href="#contacto" class="btn-primary">Pide tu cita diagnóstica</a>
+        </div>
+    </header>
+
+    <section id="sintomas" class="section symptoms">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>¿Sientes que el mundo gira?</h2>
+                <p>No estás solo. Los trastornos del equilibrio afectan a millones de personas, pero tienen solución.
+                </p>
+            </div>
+            <div class="grid-cards">
+                <div class="card fade-in-up delay-100">
+                    <div class="icon">🌀</div>
+                    <h3>Vértigo</h3>
+                    <p>Sensación ilusoria de movimiento o giro del entorno.</p>
+                </div>
+                <div class="card fade-in-up delay-200">
+                    <div class="icon">🌫️</div>
+                    <h3>Mareo</h3>
+                    <p>Sensación de aturdimiento, desmayo o inestabilidad.</p>
+                </div>
+                <div class="card fade-in-up delay-300">
+                    <div class="icon">⚖️</div>
+                    <h3>Desequilibrio</h3>
+                    <p>Dificultad para mantener la postura al estar de pie o caminar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tratamientos" class="section treatments">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content fade-in-up">
+                    <h2>Tecnología de Vanguardia</h2>
+                    <p>Utilizamos posturografía dinámica computarizada y videonistagmografía para un diagnóstico
+                        preciso.</p>
+                    <ul class="feature-list">
+                        <li>Rehabilitación Vestibular Personalizada</li>
+                        <li>Maniobras de Reposicionamiento</li>
+                        <li>Terapia de Realidad Virtual</li>
+                    </ul>
+                </div>
+                <div class="image-content fade-in-up delay-200">
+                    <!-- Placeholder for a clinic image, using a CSS gradient/shape for now -->
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="images/repositioning.png" alt="Maniobras de Reposicionamiento">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/vr_therapy.png" alt="Terapia de Realidad Virtual">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/rehab.png" alt="Rehabilitación Personalizada">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <div class="contact-wrapper fade-in-up">
+                <div class="contact-info">
+                    <h2>Hablemos</h2>
+                    <p>Déjanos tus datos y un especialista se pondrá en contacto contigo para evaluar tu caso.</p>
+                    <div class="info-item">
+                        <strong>📍 Dirección</strong>
+                        <p>Calle de la Salud 123, Barcelona</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Teléfono</strong>
+                        <p>+34 123 456 789</p>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Tu teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje (Opcional)</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Cuéntanos brevemente qué sientes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 BalanZen. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
