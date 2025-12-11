@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia Corporativa | BalanZen</title>
+    <meta name="description" content="Mapa Estratégico y Balanced Scorecard de BalanZen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="parallax-bg" id="parallax-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="BalanZen Logo" class="logo-img">
+                BalanZen
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="filosofia.html" class="active">Nuestra Filosofía</a></li>
+                <li><a href="index.html#sintomas">Síntomas</a></li>
+                <li><a href="index.html#tratamientos">Tratamientos</a></li>
+                <li><a href="index.html#contacto" class="btn-nav">Pedir Cita</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 400px; height: 50vh;">
+        <div class="container hero-content fade-in-up">
+            <h1>Estrategia 2025</h1>
+            <p>Nuestro camino hacia la excelencia y el crecimiento sostenible.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="strategic-lines fade-in-up">
+                <h2>Líneas Estratégicas</h2>
+                <div class="lines-grid">
+                    <div class="line-card">
+                        <div class="line-icon">🏥</div>
+                        <h3>Excelencia clínica</h3>
+                    </div>
+                    <div class="line-card">
+                        <div class="line-icon">💙</div>
+                        <h3>Orientación al paciente</h3>
+                    </div>
+                    <div class="line-card">
+                        <div class="line-icon">🌍</div>
+                        <h3>Expansión</h3>
+                    </div>
+                    <div class="line-card">
+                        <div class="line-icon">🌱</div>
+                        <h3>Sostenibilidad</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bsc-map fade-in-up delay-100">
+                <h2 style="margin-bottom: 40px;">Mapa Estratégico (Balanced Scorecard)</h2>
+                <div class="bsc-container">
+
+                    <svg id="bsc-arrows"
+                        style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: 0;"></svg>
+
+                    <!-- Financiera -->
+                    <div class="bsc-perspective financial" style="z-index: 1;">
+                        <div class="perspective-label">Financiera</div>
+                        <div class="objectives-row">
+                            <div class="objective-card" id="obj-ingresos">🌱 Aumentar ingresos</div>
+                            <div class="objective-card" id="obj-rentabilidad">🌱 Aumentar la rentabilidad</div>
+                            <!-- Aumentar número de centros moves to financial impact/growth usually, but user put it in list. 
+                                 However, User put "Aumentar el número de centros" in general list. 
+                                 I'll place "Aumentar el número de centros" in Financial as revenue driver or Internal Process?
+                                 User Plan said: "Finanzas: ... Aumentar el número de centros". Okay following plan.
+                            -->
+                            <div class="objective-card" id="obj-centros">🌍 Aumentar número de centros</div>
+                        </div>
+                    </div>
+                    <!-- Removed text arrow -->
+
+                    <!-- Clientes -->
+                    <div class="bsc-perspective customer" style="z-index: 1;">
+                        <div class="perspective-label">Clientes / Pacientes</div>
+                        <div class="objectives-row">
+                            <div class="objective-card" id="obj-clientes">🌍 Aumentar los clientes</div>
+                            <div class="objective-card" id="obj-experiencia">💙 Mejorar la experiencia paciente</div>
+                            <div class="objective-card" id="obj-marca">🌍 Generar imagen de marca</div>
+                        </div>
+                    </div>
+                    <!-- Removed text arrow -->
+
+                    <!-- Procesos Internos -->
+                    <div class="bsc-perspective internal" style="z-index: 1;">
+                        <div class="perspective-label">Procesos Internos</div>
+                        <div class="objectives-grid">
+                            <div class="objective-card" id="obj-espera">💙 Reducir tiempos de espera</div>
+                            <div class="objective-card" id="obj-digital">🌱 Potenciar la digitalización</div>
+                            <div class="objective-card" id="obj-seguridad">🏥 Mejorar seguridad paciente</div>
+                            <div class="objective-card" id="obj-tech">🏥 Invertir en tecnología puntera</div>
+                        </div>
+                    </div>
+                    <!-- Removed text arrow -->
+
+                    <!-- Aprendizaje y Crecimiento -->
+                    <div class="bsc-perspective learning" style="z-index: 1;">
+                        <div class="perspective-label">Aprendizaje y Crecimiento</div>
+                        <div class="objectives-row">
+                            <div class="objective-card" id="obj-talento">🏥 Captar talento</div>
+                            <div class="objective-card" id="obj-capacitar">🏥 Capacitar al personal</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 BalanZen. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

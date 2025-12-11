@@ -77,4 +77,107 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Strategy Map Arrows Logic ---
+    function drawArrows() {
+        const svg = document.getElementById('bsc-arrows');
+        if (!svg) return;
+
+        // Clear existing arrows
+        while (svg.firstChild) {
+            svg.removeChild(svg.firstChild);
+        }
+
+        const connections = [
+            // Learning -> Internal
+            { start: 'obj-capacitar', end: 'obj-espera' },
+            { start: 'obj-capacitar', end: 'obj-seguridad' },
+            { start: 'obj-talento', end: 'obj-tech' },
+
+            // Internal -> Customer
+            { start: 'obj-espera', end: 'obj-experiencia' },
+            { start: 'obj-digital', end: 'obj-espera' },
+            { start: 'obj-tech', end: 'obj-experiencia' },
+            { start: 'obj-seguridad', end: 'obj-marca' },
+
+            // Customer -> Financial
+            { start: 'obj-experiencia', end: 'obj-clientes' },
+            { start: 'obj-experiencia', end: 'obj-marca' },
+            { start: 'obj-marca', end: 'obj-clientes' },
+            { start: 'obj-clientes', end: 'obj-ingresos' },
+
+            // Financial
+            { start: 'obj-ingresos', end: 'obj-rentabilidad' },
+            { start: 'obj-ingresos', end: 'obj-centros' }
+        ];
+
+        const containerRect = document.querySelector('.bsc-container').getBoundingClientRect();
+
+        // Create marker definition
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+        marker.setAttribute('id', 'arrowhead');
+        marker.setAttribute('markerWidth', '10');
+        marker.setAttribute('markerHeight', '7');
+        marker.setAttribute('refX', '9');
+        marker.setAttribute('refY', '3.5');
+        marker.setAttribute('orient', 'auto');
+        const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        polygon.setAttribute('points', '0 0, 10 3.5, 0 7');
+        polygon.setAttribute('fill', '#0e4b5a');
+        marker.appendChild(polygon);
+        defs.appendChild(marker);
+        svg.appendChild(defs);
+
+        connections.forEach(conn => {
+            const startEl = document.getElementById(conn.start);
+            const endEl = document.getElementById(conn.end);
+
+            if (startEl && endEl) {
+                const startRect = startEl.getBoundingClientRect();
+                const endRect = endEl.getBoundingClientRect();
+
+                // Logic: Arrows go from Bottom Cards (Start) UP to Top Cards (End)
+                // Start Point: Top Center of Start Card
+                // End Point: Bottom Center of End Card
+
+                const startX = startRect.left + startRect.width / 2 - containerRect.left;
+                const startY = startRect.top - containerRect.top;
+
+                const endX = endRect.left + endRect.width / 2 - containerRect.left;
+                const endY = endRect.bottom - containerRect.top;
+
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+                // Curvy lines Bezier
+                const diffY = endY - startY;
+                const controlY1 = startY + diffY * 0.5;
+                const controlY2 = endY - diffY * 0.5;
+
+                const d = `M ${startX} ${startY} C ${startX} ${controlY1}, ${endX} ${controlY2}, ${endX} ${endY}`;
+
+                path.setAttribute('d', d);
+                path.setAttribute('stroke', '#0e4b5a');
+                path.setAttribute('stroke-width', '2');
+                path.setAttribute('fill', 'none');
+                path.setAttribute('marker-end', 'url(#arrowhead)');
+                path.setAttribute('opacity', '0.5');
+
+                svg.appendChild(path);
+            }
+        });
+    }
+
+    // Run drawArrows if container exists
+    if (document.getElementById('bsc-arrows')) {
+        // Initial draw
+        setTimeout(drawArrows, 100);
+
+        // Resize listener
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(drawArrows, 100);
+        });
+    }
 });
