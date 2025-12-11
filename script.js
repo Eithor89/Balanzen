@@ -90,15 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const connections = [
             // Learning -> Internal
-            { start: 'obj-capacitar', end: 'obj-espera' },
+            { start: 'obj-capacitar', end: 'obj-talento' },
             { start: 'obj-capacitar', end: 'obj-seguridad' },
-            { start: 'obj-talento', end: 'obj-tech' },
+            { start: 'obj-talento', end: 'obj-marca' },
+            { start: 'obj-talento', end: 'obj-experiencia' },
 
             // Internal -> Customer
             { start: 'obj-espera', end: 'obj-experiencia' },
             { start: 'obj-digital', end: 'obj-espera' },
+            { start: 'obj-digital', end: 'obj-seguridad' },
             { start: 'obj-tech', end: 'obj-experiencia' },
-            { start: 'obj-seguridad', end: 'obj-marca' },
+            { start: 'obj-tech', end: 'obj-digital' },
+            { start: 'obj-tech', end: 'obj-espera' },
+            { start: 'obj-seguridad', end: 'obj-experiencia' },
 
             // Customer -> Financial
             { start: 'obj-experiencia', end: 'obj-clientes' },
@@ -108,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Financial
             { start: 'obj-ingresos', end: 'obj-rentabilidad' },
-            { start: 'obj-ingresos', end: 'obj-centros' }
+            { start: 'obj-rentabilidad', end: 'obj-centros' }
         ];
 
         const containerRect = document.querySelector('.bsc-container').getBoundingClientRect();

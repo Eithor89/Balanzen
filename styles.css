@@ -511,7 +511,7 @@ a {
     align-items: center;
     gap: 40px;
     /* Increased gap for arrow visibility */
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
     /* Essential for SVG absolute positioning */
@@ -545,20 +545,20 @@ a {
 .objectives-grid {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
+    flex-wrap: nowrap;
     margin-top: 10px;
 }
 
 .objective-card {
     background: var(--white);
-    padding: 15px 25px;
+    padding: 12px 18px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     border-left: 4px solid var(--secondary-color);
-    min-width: 180px;
+    min-width: 160px;
     text-align: center;
     transition: var(--transition);
 }
