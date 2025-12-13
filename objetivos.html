@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetivos e Indicadores | BalanZen</title>
+    <meta name="description" content="Objetivos estratégicos e indicadores de desempeño de BalanZen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .objectives-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .objective-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .objective-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.05) 0%, rgba(233, 196, 106, 0.05) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .objective-item:hover::before {
+            opacity: 1;
+        }
+
+        .objective-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+        }
+
+        .objective-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .objective-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .objective-icon {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+        }
+
+        .indicator-section {
+            background: rgba(14, 75, 90, 0.03);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .indicator-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .indicator-label::before {
+            content: '📊';
+            font-size: 1rem;
+        }
+
+        .indicator-value {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .indicator-value ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .indicator-value li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .indicator-value li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Different border colors for visual variety */
+        .objective-item:nth-child(4n+1) {
+            border-left-color: #e76f51;
+        }
+
+        .objective-item:nth-child(4n+2) {
+            border-left-color: #2a9d8f;
+        }
+
+        .objective-item:nth-child(4n+3) {
+            border-left-color: #e9c46a;
+        }
+
+        .objective-item:nth-child(4n+4) {
+            border-left-color: #264653;
+        }
+
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-banner h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1200px) {
+            .objectives-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .objectives-container {
+                grid-template-columns: 1fr;
+            }
+
+            .objective-item {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax-bg" id="parallax-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="BalanZen Logo" class="logo-img">
+                BalanZen
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="filosofia.html">Nuestra Filosofía</a></li>
+                <li><a href="estrategia.html">Estrategia</a></li>
+                <li><a href="objetivos.html" class="active">Objetivos</a></li>
+                <li><a href="index.html#contacto" class="btn-nav">Pedir Cita</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 400px; height: 50vh;">
+        <div class="container hero-content fade-in-up">
+            <h1>Objetivos e Indicadores 2025</h1>
+            <p>Nuestra hoja de ruta hacia la excelencia medible y el impacto sostenible.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-banner fade-in-up">
+                <h3>12 Objetivos Estratégicos</h3>
+                <p>Cada objetivo cuenta con indicadores medibles para garantizar el seguimiento y éxito</p>
+            </div>
+
+            <div class="objectives-container">
+                <!-- Objetivo 1 -->
+                <div class="objective-item fade-in-up">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">🌱</span>
+                            <span>Aumentar ingresos</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Ingresos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 2 -->
+                <div class="objective-item fade-in-up delay-100">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">📈</span>
+                            <span>Aumentar la rentabilidad</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">EBITDA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 3 -->
+                <div class="objective-item fade-in-up delay-200">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">👥</span>
+                            <span>Fidelizar talento</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Rotación no deseada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 4 -->
+                <div class="objective-item fade-in-up delay-300">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">📚</span>
+                            <span>Capacitar al personal</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">ILUO</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 5 -->
+                <div class="objective-item fade-in-up">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">🔬</span>
+                            <span>Invertir en tecnología puntera</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Ratio aparataje >6 años / total del aparataje</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 6 -->
+                <div class="objective-item fade-in-up delay-100">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">💙</span>
+                            <span>Mejorar experiencia paciente</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">NPS (Net Promoter Score)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 7 -->
+                <div class="objective-item fade-in-up delay-200">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">🎯</span>
+                            <span>Aumentar los clientes</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Número de primeras visitas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 8 -->
+                <div class="objective-item fade-in-up delay-300">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">⏱️</span>
+                            <span>Reducir tiempos de espera</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicadores</div>
+                            <div class="indicator-value">
+                                <ul>
+                                    <li>Tiempo desde el primer contacto hasta la primera visita</li>
+                                    <li>Tiempo entre la primera visita y el inicio del tratamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 9 -->
+                <div class="objective-item fade-in-up">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">💻</span>
+                            <span>Potenciar la digitalización</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Ratio visitas programadas por web o app / total de visitas
+                                programadas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 10 -->
+                <div class="objective-item fade-in-up delay-100">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">🛡️</span>
+                            <span>Mejorar seguridad del paciente</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Número de caídas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 11 -->
+                <div class="objective-item fade-in-up delay-200">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">🌍</span>
+                            <span>Aumentar número de centros</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Número de centros</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetivo 12 -->
+                <div class="objective-item fade-in-up delay-300">
+                    <div class="objective-content">
+                        <div class="objective-title">
+                            <span class="objective-icon">✨</span>
+                            <span>Generar imagen de marca</span>
+                        </div>
+                        <div class="indicator-section">
+                            <div class="indicator-label">Indicador</div>
+                            <div class="indicator-value">Encuestas de posicionamiento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 BalanZen. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
