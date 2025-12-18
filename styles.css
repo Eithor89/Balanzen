@@ -402,10 +402,38 @@ a {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 40px 0;
+    padding: 20px 0;
     background: var(--primary-color);
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.made-by {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.made-by img {
+    height: 60px;
+    width: auto;
+    /* Removed filter to show original logo colors */
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.made-by:hover img {
+    opacity: 1;
 }
 
 /* Animation Classes */
